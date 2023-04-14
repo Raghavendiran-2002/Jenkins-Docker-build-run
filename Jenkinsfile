@@ -5,7 +5,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
     stages{
-        stage('docker login') {
+        stage('login docker') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
@@ -23,6 +23,11 @@ pipeline {
         stage("run"){
             steps{
                 sh """docker run --name jenkinsdocker raghavendiran2002/jenkins-docker-hub"""
+            }
+        }
+        stage('logout logout') {
+            steps {
+                sh 'docker logout'
             }
         }
         // https://sweetcode.io/how-to-build-and-push-docker-images-to-docker-hub-using-jenkins-pipeline/
