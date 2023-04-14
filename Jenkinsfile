@@ -12,7 +12,7 @@ pipeline {
         }
         stage("build"){
             steps{
-                sh """docker build -t raghavendiran2002/hello_there . """
+                sh """docker build -t raghavendiran2002/jenkins-docker-hub . """
             }
         }
         stage("run"){
