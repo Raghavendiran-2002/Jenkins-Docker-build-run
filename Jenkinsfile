@@ -15,14 +15,14 @@ pipeline {
                 sh """docker build -t raghavendiran2002/jenkins-docker-hub . """
             }
         }
-        stage("run"){
-            steps{
-                sh """docker run --name JenkinsPipeline jenkins-docker-hub"""
-            }
-        }
         stage('docker push') {
             steps {
                 sh 'docker push raghavendiran2002/jenkins-docker-hub'
+            }
+        }
+        stage("run"){
+            steps{
+                sh """docker run --name JenkinsPipeline jenkins-docker-hub"""
             }
         }
         // https://sweetcode.io/how-to-build-and-push-docker-images-to-docker-hub-using-jenkins-pipeline/
